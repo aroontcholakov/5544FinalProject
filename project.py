@@ -8,3 +8,4 @@ import seaborn as sns
 import altair as alt
 
 # df = pd.read_csv()
+st.title('Final Project')
