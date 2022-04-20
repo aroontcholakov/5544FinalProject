@@ -15,5 +15,5 @@ df_percapita = pd.read_csv(r'https://raw.githubusercontent.com/aroontcholakov/55
 
 st.title('F')
 st.write(df_emissions.head())
-st.write(df_gov.columns())
+st.write(df_gov.iloc[0])
 
