@@ -1,0 +1,8 @@
+pandas
+random
+os
+numpy
+random
+matplotlib
+seaborn
+altair
