@@ -16,15 +16,13 @@ df_emissions.drop(df_emissions.index[0], inplace=True)
 df_percapita.drop(df_percapita.index[0], inplace=True)
 
 st.title('F')
-st.write(df_emissions.head())
-st.write(df_gov.head())
 
 # Government Type Plot
 sns.set(rc = {'figure.figsize':(20,20)})
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
-
+st.pyplot(ax)
 
 # Emissions GDP plot
 df_gdp = df_emissions[['Country', '2000_gdp', '2001_gdp', '2002_gdp', '2003_gdp', '2004_gdp', '2005_gdp',
@@ -42,7 +40,7 @@ melted_gdp = pd.melt(df_gdp, id_vars=['Country'], value_vars=['2000', '2001', '2
 #data manip chart 2
 df_emissions_only = df_emissions.iloc[:, 0:21]
 df_full_emissions = df_emissions_only.drop([1, 6, 9, 10, 11, 12, 24, 25, 26, 28, 32, 38, 43, 48, 51])
-df_full_emissions
+# df_full_emissions
 melted_emissions = pd.melt(df_full_emissions, id_vars=['Country'], value_vars=['2000', '2001', '2002', '2003', '2004', '2005',
                                                               '2006', '2007', '2008', '2009', '2010', '2011',
                                                               '2012', '2013', '2014', '2015', '2016', '2017',
@@ -80,4 +78,4 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
 )
 
 both = chart1 | chart2
-st.altair_chart(both, use_container_width=False)
+st.altair_chart(both, use_container_width=True)
