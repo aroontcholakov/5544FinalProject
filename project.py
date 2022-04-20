@@ -11,4 +11,8 @@ gdp = pd.read_csv(r'https://raw.githubusercontent.com/aroontcholakov/5544FinalPr
 gov = pd.read_csv(r'https://raw.githubusercontent.com/aroontcholakov/5544FinalProject/main/government_type%2Bavg_emissions.csv', sep=',')
 capita = pd.read_csv(r'https://raw.githubusercontent.com/aroontcholakov/5544FinalProject/main/emissions_per_capita.csv', sep=',')
 
-st.title('Final Project')
+
+
+st.title('F')
+st.write(gdp.head())
+
