@@ -18,11 +18,11 @@ df_percapita.drop(df_percapita.index[0], inplace=True)
 st.title('F')
 
 # Government Type Plot
-sns.set(rc = {'figure.figsize':(20,20)})
+fig,ax = sns.set(rc = {'figure.figsize':(20,20)})
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
-st.pyplot(ax)
+st.pyplot(fig)
 
 # Emissions GDP plot
 df_gdp = df_emissions[['Country', '2000_gdp', '2001_gdp', '2002_gdp', '2003_gdp', '2004_gdp', '2005_gdp',
