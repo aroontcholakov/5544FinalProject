@@ -110,4 +110,4 @@ line = alt.Chart(df_pc_only).encode(
             alt.value('green'))
 )
 figure = chart_1990 + chart_2019 + line
-st.altair_chart(figure, use_containerwidth=True)
+st.altair_chart(figure, use_container_width=True)
