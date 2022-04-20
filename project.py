@@ -15,7 +15,7 @@ df_gov.drop(df_gov.index[0], inplace=True)
 df_emissions.drop(df_emissions.index[0], inplace=True)
 df_percapita.drop(df_percapita.index[0], inplace=True)
 
-st.set_page_config(page_title="My App",layout='wide')
+st.set_page_config(page_title="Emissions",layout='wide')
 st.title('F')
 
 # Government Type Plot
