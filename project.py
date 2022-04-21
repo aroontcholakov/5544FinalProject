@@ -23,12 +23,12 @@ st.write('This tool examines how GDP, population, and governmental system may af
 df_pc_only = df_percapita.drop(['1990', '2019', 'population 1990', 'population 2019'], axis=1)
 df_pc_only = df_pc_only.rename(columns={'emissions per capita 1990' : 'epc_1990', 'emissions per capita 2019' : 'epc_2019'})
 
-chart_1990 = alt.Chart(df_pc_only).mark_square(size=50, color='orange').encode(
+chart_1990 = alt.Chart(df_pc_only).mark_square(size=50, color='blue').encode(
     x='Country:N',
     y=alt.Y('epc_1990:Q'),
     tooltip=['Country', 'epc_1990']
 ).interactive()
-chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='blue').encode(
+chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='black').encode(
     x='Country:N',
     y=alt.Y('epc_2019:Q'),
     tooltip=['Country', 'epc_2019']
