@@ -17,14 +17,12 @@ df_percapita.drop(df_percapita.index[0], inplace=True)
 
 st.set_page_config(page_title="Emissions",layout='wide')
 st.title('F')
-col1, col2 = st.columns([3,2])
 # Government Type Plot
-# sns.set(rc = {'figure.figsize':(20,20)})
 fig, ax = plt.subplots(figsize=(16,16))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
-col2.pyplot(fig)
+st.pyplot(fig)
 
 # Emissions GDP plot
 df_gdp = df_emissions[['Country', '2000_gdp', '2001_gdp', '2002_gdp', '2003_gdp', '2004_gdp', '2005_gdp',
@@ -79,7 +77,7 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
     height=800
 )
 both = chart1 | chart2
-col1.altair_chart(both, use_container_width=True)
+st.altair_chart(both, use_container_width=True)
 
 #per capita chart
 df_pc_only = df_percapita.drop(['1990', '2019', 'population 1990', 'population 2019'], axis=1)
@@ -90,10 +88,13 @@ chart_1990 = alt.Chart(df_pc_only).mark_circle(size=50, color='orange').encode(
     y=alt.Y('epc_1990:Q', axis=alt.Axis(title='emissions per capita')),
     tooltip=['Country', 'epc_1990']
 ).interactive()
-chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='blue').encode(
+chart_2019 = alt.Chart(df_pc_only).mark_square(size=50, color='blue').encode(
     x='Country:N',
     y=alt.Y('epc_2019:Q', axis=alt.Axis(title='emissions per capita')),
     tooltip=['Country', 'epc_2019']
+).properties(
+  width=800,
+  height=400
 )
 
 line = alt.Chart(df_pc_only).encode(
