@@ -32,8 +32,8 @@ chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='blue').encode(
     y=alt.Y('epc_2019:Q'),
     tooltip=['Country', 'epc_2019']
 ).properties(
-  width=800,
-  height=600
+  width=600,
+  height=300
 )
 
 line = alt.Chart(df_pc_only).encode(
@@ -53,13 +53,13 @@ line = alt.Chart(df_pc_only).encode(
 figure = line + chart_1990 + chart_2019
 st.altair_chart(figure, use_container_width=True)
 
-
+col1, col2 = st.columns([4,1])
 # Government Type Plot
 fig, ax = plt.subplots(figsize=(16,16))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
-st.pyplot(fig)
+col2.pyplot(fig)
 
 # Emissions GDP plot
 df_gdp = df_emissions[['Country', '2000_gdp', '2001_gdp', '2002_gdp', '2003_gdp', '2004_gdp', '2005_gdp',
@@ -114,4 +114,4 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
     height=800
 )
 both = chart1 | chart2
-st.altair_chart(both, use_container_width=True)
+col1.altair_chart(both, use_container_width=True)
