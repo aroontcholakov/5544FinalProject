@@ -59,7 +59,7 @@ st.altair_chart(figure, use_container_width=True)
 
 col1, col2 = st.columns([1,1])
 # Government Type Plot
-fig, ax = plt.subplots(figsize=(15,15))
+fig, ax = plt.subplots(figsize=(10,10))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
@@ -101,8 +101,8 @@ chart1 = alt.Chart(melted_gdp).mark_line().add_selection(
     color=alt.Color('Country',legend=alt.Legend(symbolLimit=62)),
     opacity=alt.condition(selection, alt.value(0.75), alt.value(0.20))
 ).properties(
-    width=400,
-    height=800
+    width=300,
+    height=600
 )
 
 chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
@@ -113,8 +113,8 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
     color=alt.Color('Country',legend=alt.Legend(symbolLimit=62, columns=2)),
     opacity=alt.condition(selection2, alt.value(1), alt.value(0.07))
 ).properties(
-    width=400,
-    height=800
+    width=300,
+    height=600
 )
 both = chart1 | chart2
 col2.altair_chart(both, use_container_width=True)
