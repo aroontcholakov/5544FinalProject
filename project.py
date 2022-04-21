@@ -24,7 +24,7 @@ fig, ax = plt.subplots(figsize=(20,20))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
-col1.pyplot(fig)
+col2.pyplot(fig)
 
 # Emissions GDP plot
 df_gdp = df_emissions[['Country', '2000_gdp', '2001_gdp', '2002_gdp', '2003_gdp', '2004_gdp', '2005_gdp',
@@ -79,7 +79,7 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
     height=800
 )
 both = chart1 | chart2
-col2.altair_chart(both, use_container_width=True)
+col1.altair_chart(both, use_container_width=True)
 
 #per capita chart
 df_pc_only = df_percapita.drop(['1990', '2019', 'population 1990', 'population 2019'], axis=1)
