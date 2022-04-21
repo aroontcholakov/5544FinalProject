@@ -63,6 +63,7 @@ fig, ax = plt.subplots(figsize=(10,10))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
+ax.title("Average Emissions per Governmental System")
 col1.pyplot(fig)
 
 # Emissions GDP plot
