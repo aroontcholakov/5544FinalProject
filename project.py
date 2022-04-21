@@ -32,7 +32,7 @@ chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='blue').encode(
     y=alt.Y('epc_2019:Q'),
     tooltip=['Country', 'epc_2019']
 ).properties(
-    width=600,
+    width=500,
     height=400,
     title={
         "text":["Change in CO2 Emissions Per Capita, 1990-2019"]
