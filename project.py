@@ -17,7 +17,7 @@ df_percapita.drop(df_percapita.index[0], inplace=True)
 
 st.set_page_config(page_title="Emissions",layout='wide')
 st.title('F')
-col1, col2 = st.columns([2,2])
+col1, col2 = st.columns([3,2])
 # Government Type Plot
 # sns.set(rc = {'figure.figsize':(20,20)})
 fig, ax = plt.subplots(figsize=(16,16))
