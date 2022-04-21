@@ -32,8 +32,8 @@ chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='blue').encode(
     y=alt.Y('epc_2019:Q'),
     tooltip=['Country', 'epc_2019']
 ).properties(
-    width=600,
-    height=600,
+    width=500,
+    height=500,
     title={
         "text":["Change in CO2 Emissions Per Capita, 1990-2019"]
     }
@@ -56,7 +56,7 @@ line = alt.Chart(df_pc_only).encode(
 figure = line + chart_1990 + chart_2019
 st.altair_chart(figure, use_container_width=True)
 
-col1, col2 = st.columns([4,1])
+col1, col2 = st.columns([3,1])
 # Government Type Plot
 fig, ax = plt.subplots(figsize=(16,16))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
