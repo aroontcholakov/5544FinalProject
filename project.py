@@ -54,7 +54,7 @@ line = alt.Chart(df_pc_only).encode(
             alt.value('red'),
             alt.value('green'))
 )
-figure = line + chart_1990 + chart_2019
+figure = (line + chart_1990 + chart_2019).configure(background='White')
 st.altair_chart(figure, use_container_width=True)
 
 col1, col2 = st.columns([1,1])
