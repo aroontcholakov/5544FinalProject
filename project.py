@@ -16,7 +16,7 @@ df_emissions.drop(df_emissions.index[0], inplace=True)
 df_percapita.drop(df_percapita.index[0], inplace=True)
 
 st.set_page_config(page_title="Emissions",layout='wide')
-st.title('F')
+st.title('Emission Trends of the World')
 
 #per capita chart
 df_pc_only = df_percapita.drop(['1990', '2019', 'population 1990', 'population 2019'], axis=1)
@@ -24,12 +24,12 @@ df_pc_only = df_pc_only.rename(columns={'emissions per capita 1990' : 'epc_1990'
 
 chart_1990 = alt.Chart(df_pc_only).mark_square(size=50, color='orange').encode(
     x='Country:N',
-    y=alt.Y('epc_1990:Q', axis=alt.Axis(title='emissions per capita')),
+    y=alt.Y('epc_1990:Q'),
     tooltip=['Country', 'epc_1990']
 ).interactive()
 chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='blue').encode(
     x='Country:N',
-    y=alt.Y('epc_2019:Q', axis=alt.Axis(title='emissions per capita')),
+    y=alt.Y('epc_2019:Q'),
     tooltip=['Country', 'epc_2019']
 ).properties(
   width=800,
@@ -41,7 +41,7 @@ line = alt.Chart(df_pc_only).encode(
 ).mark_rule().encode(
     alt.Y(
         'epc_1990:Q',
-        title='Per Capita Emissions',
+        title='Change in Per Capita Emissions',
         scale=alt.Scale(zero=False),
     ),
     alt.Y2('epc_2019:Q'),
