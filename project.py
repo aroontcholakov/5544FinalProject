@@ -37,7 +37,7 @@ chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='blue').encode(
     title={
         "text":["Change in CO2 Emissions Per Capita, 1990-2019"]
     }
-).
+)
 
 line = alt.Chart(df_pc_only).encode(
     alt.X('Country:N')
