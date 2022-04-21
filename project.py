@@ -58,7 +58,7 @@ st.altair_chart(figure, use_container_width=True)
 
 col1, col2 = st.columns([1,1])
 # Government Type Plot
-fig, ax = plt.subplots(figsize=(15,30))
+fig, ax = plt.subplots(figsize=(15,15))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
