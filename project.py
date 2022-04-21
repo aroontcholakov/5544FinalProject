@@ -81,7 +81,6 @@ melted_gdp = pd.melt(df_gdp, id_vars=['Country'], value_vars=['2000', '2001', '2
 #data manip chart 2
 df_emissions_only = df_emissions.iloc[:, 0:21]
 df_full_emissions = df_emissions_only.drop([1, 6, 9, 10, 11, 12, 24, 25, 26, 28, 32, 38, 43, 48, 51])
-# df_full_emissions
 melted_emissions = pd.melt(df_full_emissions, id_vars=['Country'], value_vars=['2000', '2001', '2002', '2003', '2004', '2005',
                                                               '2006', '2007', '2008', '2009', '2010', '2011',
                                                               '2012', '2013', '2014', '2015', '2016', '2017',
@@ -111,7 +110,7 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
 ).encode(
     x='Year',
     y=alt.Y('Emissions:Q', scale=alt.Scale(type="log")),
-    color=alt.Color('Country',legend=alt.Legend(symbolLimit=62)),
+    color=alt.Color('Country',legend=alt.Legend(symbolLimit=62, columns=2)),
     opacity=alt.condition(selection2, alt.value(1), alt.value(0.07))
 ).properties(
     width=400,
