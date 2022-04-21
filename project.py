@@ -28,7 +28,7 @@ chart_1990 = alt.Chart(df_pc_only).mark_square(size=50, color='blue').encode(
     y=alt.Y('epc_1990:Q'),
     tooltip=['Country', 'epc_1990']
 ).interactive()
-chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='black').encode(
+chart_2019 = alt.Chart(df_pc_only).mark_circle(size=50, color='grey').encode(
     x='Country:N',
     y=alt.Y('epc_2019:Q'),
     tooltip=['Country', 'epc_2019']
@@ -54,7 +54,7 @@ line = alt.Chart(df_pc_only).encode(
             alt.value('red'),
             alt.value('green'))
 )
-figure = (line + chart_1990 + chart_2019).configure(background='White')
+figure = line + chart_1990 + chart_2019
 st.altair_chart(figure, use_container_width=True)
 
 col1, col2 = st.columns([1,1])
