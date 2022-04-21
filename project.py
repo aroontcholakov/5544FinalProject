@@ -101,8 +101,8 @@ chart1 = alt.Chart(melted_gdp).mark_line().add_selection(
     color=alt.Color('Country',legend=alt.Legend(symbolLimit=62)),
     opacity=alt.condition(selection, alt.value(0.75), alt.value(0.20))
 ).properties(
-    width=400,
-    height=800
+    width=300,
+    height=600
 )
 
 chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
@@ -113,8 +113,8 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
     color=alt.Color('Country',legend=alt.Legend(symbolLimit=62)),
     opacity=alt.condition(selection2, alt.value(1), alt.value(0.07))
 ).properties(
-    width=400,
-    height=800
+    width=300,
+    height=600
 )
 both = chart1 | chart2
 col1.altair_chart(both, use_container_width=True)
