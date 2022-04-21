@@ -103,7 +103,10 @@ chart1 = alt.Chart(melted_gdp).mark_line().add_selection(
     opacity=alt.condition(selection, alt.value(0.75), alt.value(0.20))
 ).properties(
     width=300,
-    height=600
+    height=600,
+    title={
+        "text":["GDP per Country, 2000-2019"]
+    }
 )
 
 chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
@@ -115,12 +118,10 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
     opacity=alt.condition(selection2, alt.value(1), alt.value(0.07))
 ).properties(
     width=300,
-    height=600
-)
-both = chart1 | chart2
-both.properties(
+    height=600,
     title={
-        "text":["Parallel Emissions and GDP Chart, 1990-2019"]
+        "text":["Emissions per Country, 2000-2019"]
     }
 )
+both = chart1 | chart2
 col2.altair_chart(both, use_container_width=True)
