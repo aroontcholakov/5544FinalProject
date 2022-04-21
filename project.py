@@ -63,7 +63,7 @@ fig, ax = plt.subplots(figsize=(10,10))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
 ax = sns.swarmplot(x="government type", y="average emissions", data=df_gov, color=".25")
 ax.set_xticklabels(ax.get_xticklabels(),rotation = 10)
-fig.title("Average Emissions per Governmental System")
+ax.set_title("Average Emissions per Governmental System")
 col1.pyplot(fig)
 
 # Emissions GDP plot
@@ -118,4 +118,9 @@ chart2 = alt.Chart(melted_emissions).mark_line().add_selection(
     height=600
 )
 both = chart1 | chart2
+both.properties(
+    title={
+        "text":["Parallel Emissions and GDP Chart, 1990-2019"]
+    }
+)
 col2.altair_chart(both, use_container_width=True)
