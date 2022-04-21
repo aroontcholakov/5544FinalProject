@@ -56,7 +56,7 @@ line = alt.Chart(df_pc_only).encode(
 figure = line + chart_1990 + chart_2019
 st.altair_chart(figure, use_container_width=True)
 
-col1, col2 = st.columns([2,1])
+col1, col2 = st.columns([1,1])
 # Government Type Plot
 fig, ax = plt.subplots(figsize=(15,30))
 ax = sns.boxplot(x="government type", y="average emissions", data=df_gov)
