@@ -94,7 +94,7 @@ chart_2019 = alt.Chart(df_pc_only).mark_square(size=50, color='blue').encode(
     tooltip=['Country', 'epc_2019']
 ).properties(
   width=800,
-  height=400
+  height=600
 )
 
 line = alt.Chart(df_pc_only).encode(
