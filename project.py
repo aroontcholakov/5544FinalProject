@@ -17,7 +17,7 @@ df_percapita.drop(df_percapita.index[0], inplace=True)
 
 st.set_page_config(page_title="Emission Trends of Countries",layout='wide')
 st.title('Emission Trends of Countries')
-st.write('This tool examines how GDP, population, and governmental factors may affect the environment in CO2 emissions')
+st.write('This tool examines how GDP, population, and governmental system may affect the environment in CO2 emissions')
 
 #per capita chart
 df_pc_only = df_percapita.drop(['1990', '2019', 'population 1990', 'population 2019'], axis=1)
